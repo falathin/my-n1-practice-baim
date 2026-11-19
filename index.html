@@ -1,183 +1,812 @@
+
 <!doctype html>
 <html lang="id">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f1e8">
-  <meta name="description" content="Catatan belajar kosakata JLPT N1 — pelajari, hafalkan, dan uji kemampuanmu.">
+  <meta name="description" content="Teman belajar kosakata JLPT N1. Pahami arti kata, pelajari penggunaannya, dan cek seberapa banyak yang sudah kamu ingat.">
   <title>ことばノート - JLPT N1</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Old+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./style/style.css">
   <script type="module" src="./js/app.js"></script>
 </head>
+
 <body>
   <div class="app-shell">
+
     <header class="topbar">
       <a class="brand" href="#home" aria-label="ことばノート, beranda">
         <span class="brand-mark" aria-hidden="true">言</span>
-        <span class="brand-copy"><strong>ことばノート</strong><small>JLPT N1 VOCABULARY</small></span>
+        <span class="brand-copy">
+          <strong>ことばノート</strong>
+          <small>JLPT N1 VOCABULARY</small>
+        </span>
       </a>
+
       <nav class="main-nav" aria-label="Navigasi utama">
         <button class="nav-link is-active" type="button" data-view="home">Beranda</button>
         <button class="nav-link" type="button" data-view="vocabulary">Kosakata</button>
-        <button class="nav-link" type="button" data-view="exam">Ujian</button>
+        <button class="nav-link" type="button" data-view="exam">Latihan</button>
       </nav>
+
       <div class="topbar-tools">
         <label class="day-select-wrap" for="day-select">
           <span class="sr-only">Pilih hari belajar</span>
           <select id="day-select" aria-label="Pilih hari belajar"></select>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m7 10 5 5 5-5"/>
+          </svg>
         </label>
+
         <div class="time-chip" title="Tema mengikuti waktu lokal perangkat">
           <span class="time-dot"></span>
           <span id="theme-label">Pagi</span>
           <time id="live-clock">--:--</time>
         </div>
+
         <label class="mode-select-wrap" for="mode-select">
-          <span class="sr-only">Mode tampilan</span>
-          <select id="mode-select" aria-label="Mode tampilan">
+          <span class="sr-only">Pilih tampilan</span>
+          <select id="mode-select" aria-label="Pilih mode tampilan">
             <option value="system">System</option>
             <option value="light">Light</option>
             <option value="dark">Dark</option>
           </select>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m7 10 5 5 5-5"/>
+          </svg>
         </label>
       </div>
     </header>
 
+
     <main id="main-content" tabindex="-1">
+
+      <!-- BERANDA -->
       <section class="view is-visible" id="view-home" aria-labelledby="home-heading">
+
         <div class="page-intro home-intro">
           <div>
-            <p class="eyebrow" id="home-eyebrow">CATATAN BELAJAR · DAY 1</p>
-            <h1 id="home-heading">Pelan-pelan, <em>jadi terbiasa.</em></h1>
-            <p class="intro-copy">Bangun pemahaman kosakata dari arti, nuansa, hingga penggunaannya dalam kalimat.</p>
+            <p class="eyebrow" id="home-eyebrow">CATATAN BELAJAR · HARI 1</p>
+
+            <h1 id="home-heading">
+              Pelan-pelan, <em>lama-lama terbiasa.</em>
+            </h1>
+
+            <p class="intro-copy">
+              Belajar kosakata bukan cuma soal menghafal arti. Kenali juga
+              cara baca, nuansa, dan bagaimana kata itu digunakan dalam kalimat.
+            </p>
           </div>
-          <div class="intro-stamp" aria-hidden="true"><span>日本語</span><small>学習記録</small></div>
+
+          <div class="intro-stamp" aria-hidden="true">
+            <span>日本語</span>
+            <small>学習記録</small>
+          </div>
         </div>
+
 
         <section class="daily-paper" aria-label="Ringkasan belajar hari ini">
+
           <div class="daily-paper-head">
-            <div><span class="section-kicker">LEMBAR BELAJAR</span><h2 id="day-title">Kosakata Hari 1</h2></div>
+            <div>
+              <span class="section-kicker">CATATAN HARI INI</span>
+              <h2 id="day-title">Kosakata Hari 1</h2>
+            </div>
+
             <span class="date-note" id="today-date">—</span>
           </div>
+
+
           <div class="progress-summary">
-            <div class="progress-number"><strong id="progress-percent">0%</strong><span>progres hafalan</span></div>
-            <div class="progress-track" role="progressbar" aria-label="Progres hafalan" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="home-progress"><span id="home-progress-fill"></span></div>
-            <p id="progress-caption">Mulai dari satu kata pertama.</p>
+            <div class="progress-number">
+              <strong id="progress-percent">0%</strong>
+              <span>progres hafalan</span>
+            </div>
+
+            <div
+              class="progress-track"
+              role="progressbar"
+              aria-label="Progres hafalan"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              id="home-progress"
+            >
+              <span id="home-progress-fill"></span>
+            </div>
+
+            <p id="progress-caption">
+              Yuk, mulai dari kata pertama!
+            </p>
           </div>
+
+
           <div class="stats-grid">
-            <div class="stat-item"><span class="stat-label">Total kosakata</span><strong id="stat-total">0</strong><small>kata dalam hari ini</small></div>
-            <div class="stat-item stat-unlearned"><span class="stat-label">Belum Hafal</span><strong id="stat-unlearned">0</strong><small>perlu dipelajari</small></div>
-            <div class="stat-item stat-pending"><span class="stat-label">Pending</span><strong id="stat-pending">0</strong><small>perlu diulang</small></div>
-            <div class="stat-item stat-learned"><span class="stat-label">Sudah Hafal</span><strong id="stat-learned">0</strong><small>telah dikuasai</small></div>
+
+            <div class="stat-item">
+              <span class="stat-label">Total kosakata</span>
+              <strong id="stat-total">0</strong>
+              <small>kata untuk dipelajari</small>
+            </div>
+
+            <div class="stat-item stat-unlearned">
+              <span class="stat-label">Belum hafal</span>
+              <strong id="stat-unlearned">0</strong>
+              <small>belum sempat dipelajari</small>
+            </div>
+
+            <div class="stat-item stat-pending">
+              <span class="stat-label">Pending</span>
+              <strong id="stat-pending">0</strong>
+              <small>masih perlu diulang</small>
+            </div>
+
+            <div class="stat-item stat-learned">
+              <span class="stat-label">Sudah hafal</span>
+              <strong id="stat-learned">0</strong>
+              <small>berhasil kamu kuasai</small>
+            </div>
+
           </div>
+
+
           <div class="paper-actions">
-            <button class="button button-primary" type="button" data-go="vocabulary">Mulai belajar <span aria-hidden="true">→</span></button>
-            <p id="exam-home-status">Ujian harian terbuka setelah semua kosakata berstatus Sudah Hafal.</p>
+            <button class="button button-primary" type="button" data-go="vocabulary">
+              Mulai belajar <span aria-hidden="true">→</span>
+            </button>
+
+            <p id="exam-home-status">
+              Kalau semua kata sudah kamu hafal, ujian harian siap dikerjakan.
+            </p>
           </div>
+
         </section>
+
 
         <section class="home-lower">
-          <div class="section-heading"><div><span class="section-kicker">LANGKAH BERIKUTNYA</span><h2>Ritme belajarmu</h2></div></div>
+
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">MULAI DARI SINI</span>
+              <h2>Bagaimana cara belajarnya?</h2>
+            </div>
+          </div>
+
+
           <div class="steps-row">
-            <article class="step-note"><span class="step-index">01</span><h3>Pelajari</h3><p>Baca arti, nuansa, dan contoh penggunaan setiap kata.</p></article>
-            <article class="step-note"><span class="step-index">02</span><h3>Hafalkan</h3><p>Tandai kata yang sudah dikuasai dan ulangi yang masih ragu.</p></article>
-            <article class="step-note"><span class="step-index">03</span><h3>Uji</h3><p>Selesaikan seluruh status hafalan untuk membuka simulasi.</p></article>
+
+            <article class="step-note">
+              <span class="step-index">01</span>
+              <h3>Pelajari</h3>
+              <p>
+                Baca arti dan cara baca setiap kata. Pahami juga penjelasan
+                serta contoh kalimatnya.
+              </p>
+            </article>
+
+            <article class="step-note">
+              <span class="step-index">02</span>
+              <h3>Hafalkan</h3>
+              <p>
+                Tandai kata yang sudah kamu ingat. Kalau masih ragu,
+                masukkan ke daftar yang perlu diulang.
+              </p>
+            </article>
+
+            <article class="step-note">
+              <span class="step-index">03</span>
+              <h3>Latihan</h3>
+              <p>
+                Kalau semua kata sudah dikuasai, coba kerjakan ujian
+                untuk mengukur pemahamanmu.
+              </p>
+            </article>
+
           </div>
         </section>
+
       </section>
 
-      <section class="view" id="view-vocabulary" aria-labelledby="vocabulary-heading" hidden>
+
+
+      <!-- KOSAKATA -->
+      <section
+        class="view"
+        id="view-vocabulary"
+        aria-labelledby="vocabulary-heading"
+        hidden
+      >
+
         <div class="page-intro compact-intro">
-          <div><p class="eyebrow">KUMPULAN KOSAKATA · <span id="vocab-day-label">DAY 1</span></p><h1 id="vocabulary-heading">Ruang <em>kosakata.</em></h1><p class="intro-copy">Temukan kata, pahami nuansanya, lalu tandai tingkat hafalanmu.</p></div>
+          <div>
+            <p class="eyebrow">
+              KUMPULAN KOSAKATA · <span id="vocab-day-label">HARI 1</span>
+            </p>
+
+            <h1 id="vocabulary-heading">
+              Waktunya belajar <em>kosakata.</em>
+            </h1>
+
+            <p class="intro-copy">
+              Cari kata yang ingin kamu pelajari, pahami penggunaannya,
+              lalu tandai sejauh mana kamu sudah menghafalnya.
+            </p>
+          </div>
         </div>
+
+
         <div class="vocab-toolbar">
+
           <label class="search-box" for="vocab-search">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
-            <input id="vocab-search" type="search" placeholder="Cari kanji, hiragana, arti, atau nuansa..." autocomplete="off">
-            <button type="button" id="clear-search" class="clear-search" aria-label="Hapus pencarian" hidden>×</button>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="6.8"/>
+              <path d="m16 16 4.5 4.5"/>
+            </svg>
+
+            <input
+              id="vocab-search"
+              type="search"
+              placeholder="Cari kanji, hiragana, arti, atau kata..."
+              autocomplete="off"
+            >
+
+            <button
+              type="button"
+              id="clear-search"
+              class="clear-search"
+              aria-label="Hapus pencarian"
+              hidden
+            >
+              ×
+            </button>
           </label>
+
+
           <div class="filter-tabs" role="group" aria-label="Filter status hafalan">
-            <button class="filter-tab is-selected" type="button" data-filter="all">Semua <span id="filter-count-all">0</span></button>
-            <button class="filter-tab" type="button" data-filter="unlearned">Belum Hafal <span id="filter-count-unlearned">0</span></button>
-            <button class="filter-tab" type="button" data-filter="pending">Pending <span id="filter-count-pending">0</span></button>
-            <button class="filter-tab" type="button" data-filter="learned">Sudah Hafal <span id="filter-count-learned">0</span></button>
+
+            <button class="filter-tab is-selected" type="button" data-filter="all">
+              Semua <span id="filter-count-all">0</span>
+            </button>
+
+            <button class="filter-tab" type="button" data-filter="unlearned">
+              Belum hafal <span id="filter-count-unlearned">0</span>
+            </button>
+
+            <button class="filter-tab" type="button" data-filter="pending">
+              Pending <span id="filter-count-pending">0</span>
+            </button>
+
+            <button class="filter-tab" type="button" data-filter="learned">
+              Sudah hafal <span id="filter-count-learned">0</span>
+            </button>
+
           </div>
         </div>
-        <div class="list-meta"><span id="list-result-count">91 kosakata</span><span>Tekan sebuah kata untuk membuka catatan lengkap</span></div>
+
+
+        <div class="list-meta">
+          <span id="list-result-count">91 kosakata</span>
+          <span>Klik salah satu kata untuk melihat detailnya</span>
+        </div>
+
+
         <div class="vocab-list" id="vocab-list" aria-live="polite"></div>
-        <div class="empty-state" id="empty-state" hidden><span class="empty-kanji">無</span><h2>Tidak ada hasil</h2><p>Coba kata kunci lain atau ubah filter status.</p><button type="button" class="button button-outline" id="reset-search">Hapus pencarian dan filter</button></div>
+
+
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-kanji">無</span>
+
+          <h2>Kata yang dicari belum ditemukan</h2>
+
+          <p>
+            Coba gunakan kata kunci lain atau pilih filter yang berbeda.
+          </p>
+
+          <button
+            type="button"
+            class="button button-outline"
+            id="reset-search"
+          >
+            Tampilkan semua kosakata
+          </button>
+        </div>
+
       </section>
 
-      <section class="view" id="view-exam" aria-labelledby="exam-heading" hidden>
+
+
+      <!-- LATIHAN / UJIAN -->
+      <section
+        class="view"
+        id="view-exam"
+        aria-labelledby="exam-heading"
+        hidden
+      >
+
         <div class="page-intro compact-intro">
-          <div><p class="eyebrow">LATIHAN PEMAHAMAN · JLPT N1</p><h1 id="exam-heading">Uji <em>pemahamanmu.</em></h1><p class="intro-copy">Latihan berbasis kosakata yang sudah tersedia dan kamu kuasai.</p></div>
+          <div>
+            <p class="eyebrow">LATIHAN KOSAKATA · JLPT N1</p>
+
+            <h1 id="exam-heading">
+              Seberapa jauh <em>kamu sudah paham?</em>
+            </h1>
+
+            <p class="intro-copy">
+              Saatnya menguji apa yang sudah kamu pelajari.
+              Kerjakan soal dan lihat hasilnya setelah selesai.
+            </p>
+          </div>
         </div>
+
+
+        <!-- HALAMAN PILIH UJIAN -->
         <div id="exam-lobby" class="exam-lobby">
-          <div class="exam-note"><span class="section-kicker">PERSIAPAN UJIAN</span><h2>Pahami kata, bukan sekadar mengingat arti.</h2><p>Setiap sesi berisi pilihan ganda dengan variasi cara baca, arti, dan penggunaan kata dalam konteks. Jawaban dan pembahasan baru ditampilkan setelah ujian selesai.</p></div>
+
+          <div class="exam-note">
+            <span class="section-kicker">SEBELUM MULAI</span>
+
+            <h2>
+              Jangan cuma hafal artinya, pahami juga penggunaannya.
+            </h2>
+
+            <p>
+              Soalnya terdiri dari beberapa jenis, mulai dari memilih
+              cara baca, memahami arti, sampai menentukan penggunaan
+              kata yang tepat dalam kalimat. Tenang, jawaban dan
+              pembahasannya bisa kamu lihat setelah ujian selesai.
+            </p>
+          </div>
+
+
           <div class="exam-options">
-            <article class="exam-option" id="daily-exam-option"><div class="exam-option-top"><span class="option-number">01</span><span class="lock-state" id="daily-lock-state">TERKUNCI</span></div><h3>Ujian Harian</h3><p id="daily-exam-description">Selesaikan hafalan Day 1 untuk membuka ujian.</p><button type="button" class="button button-primary" id="start-daily-exam" disabled>Mulai ujian <span aria-hidden="true">→</span></button></article>
-            <article class="exam-option" id="combined-exam-option"><div class="exam-option-top"><span class="option-number">02</span><span class="lock-state" id="combined-lock-state">TERKUNCI</span></div><h3>Ujian Gabungan</h3><p id="combined-exam-description">Selesaikan hafalan pada semua hari yang tersedia.</p><button type="button" class="button button-outline" id="start-combined-exam" disabled>Mulai ujian <span aria-hidden="true">→</span></button></article>
+
+            <article class="exam-option" id="daily-exam-option">
+
+              <div class="exam-option-top">
+                <span class="option-number">01</span>
+                <span class="lock-state" id="daily-lock-state">TERKUNCI</span>
+              </div>
+
+              <h3>Ujian Harian</h3>
+
+              <p id="daily-exam-description">
+                Hafalkan semua kosakata di Hari 1 terlebih dahulu untuk
+                membuka ujian ini.
+              </p>
+
+              <button
+                type="button"
+                class="button button-primary"
+                id="start-daily-exam"
+                disabled
+              >
+                Mulai ujian <span aria-hidden="true">→</span>
+              </button>
+
+            </article>
+
+
+            <article class="exam-option" id="combined-exam-option">
+
+              <div class="exam-option-top">
+                <span class="option-number">02</span>
+                <span class="lock-state" id="combined-lock-state">TERKUNCI</span>
+              </div>
+
+              <h3>Ujian Gabungan</h3>
+
+              <p id="combined-exam-description">
+                Selesaikan hafalan di semua hari yang tersedia untuk
+                membuka ujian gabungan.
+              </p>
+
+              <button
+                type="button"
+                class="button button-outline"
+                id="start-combined-exam"
+                disabled
+              >
+                Mulai ujian <span aria-hidden="true">→</span>
+              </button>
+
+            </article>
+
           </div>
-          <p class="exam-footnote">Syarat membuka ujian: seluruh kosakata pada cakupan ujian berstatus <strong>Sudah Hafal</strong>.</p>
+
+
+          <p class="exam-footnote">
+            Ujian akan terbuka setelah semua kosakata pada materi yang
+            dipilih berstatus <strong>Sudah Hafal</strong>.
+          </p>
+
         </div>
-        <section class="exam-workspace" id="exam-workspace" hidden aria-label="Area pengerjaan ujian">
-          <div class="exam-topline"><div><span class="section-kicker" id="exam-type-label">UJIAN HARIAN · DAY 1</span><h2 id="exam-session-title">Sesi latihan</h2></div><button class="text-button" type="button" id="quit-exam">Keluar dari ujian</button></div>
-          <div class="exam-progress-line"><span id="exam-progress-label">Soal 1 dari 20</span><div class="progress-track"><span id="exam-progress-fill"></span></div><span id="exam-progress-percent">5%</span></div>
-          <div class="question-card" id="question-card">
-            <div class="question-top"><span class="question-type" id="question-type">CARA BACA</span><span class="question-number" id="question-number">01 / 20</span></div>
-            <h3 id="question-prompt">Pilih cara baca yang tepat.</h3>
-            <p class="question-context" id="question-context" hidden></p>
-            <div class="answer-options" id="answer-options"></div>
+
+
+
+        <!-- AREA PENGERJAAN UJIAN -->
+        <section
+          class="exam-workspace"
+          id="exam-workspace"
+          hidden
+          aria-label="Area pengerjaan ujian"
+        >
+
+          <div class="exam-topline">
+            <div>
+              <span class="section-kicker" id="exam-type-label">
+                UJIAN HARIAN · HARI 1
+              </span>
+
+              <h2 id="exam-session-title">Semangat mengerjakan!</h2>
+            </div>
+
+            <button class="text-button" type="button" id="quit-exam">
+              Keluar dari ujian
+            </button>
           </div>
-          <div class="exam-navigation"><div class="question-map" id="question-map" aria-label="Navigasi nomor soal"></div><div class="exam-nav-buttons"><button type="button" class="button button-outline" id="previous-question" disabled>← Sebelumnya</button><button type="button" class="button button-primary" id="next-question" disabled>Berikutnya →</button></div></div>
-          <p class="exam-reminder" id="exam-reminder">Pilih satu jawaban untuk melanjutkan.</p>
+
+
+          <div class="exam-progress-line">
+            <span id="exam-progress-label">Soal 1 dari 20</span>
+
+            <div class="progress-track">
+              <span id="exam-progress-fill"></span>
+            </div>
+
+            <span id="exam-progress-percent">5%</span>
+          </div>
+
+
+          <div class="question-card" id="question-card">
+
+            <div class="question-top">
+              <span class="question-type" id="question-type">
+                CARA BACA
+              </span>
+
+              <span class="question-number" id="question-number">
+                01 / 20
+              </span>
+            </div>
+
+            <h3 id="question-prompt">
+              Pilih cara baca yang benar.
+            </h3>
+
+            <p class="question-context" id="question-context" hidden></p>
+
+            <div class="answer-options" id="answer-options"></div>
+
+          </div>
+
+
+          <div class="exam-navigation">
+
+            <div
+              class="question-map"
+              id="question-map"
+              aria-label="Navigasi nomor soal"
+            ></div>
+
+            <div class="exam-nav-buttons">
+
+              <button
+                type="button"
+                class="button button-outline"
+                id="previous-question"
+                disabled
+              >
+                ← Sebelumnya
+              </button>
+
+              <button
+                type="button"
+                class="button button-primary"
+                id="next-question"
+                disabled
+              >
+                Berikutnya →
+              </button>
+
+            </div>
+          </div>
+
+
+          <p class="exam-reminder" id="exam-reminder">
+            Pilih satu jawaban untuk lanjut ke soal berikutnya.
+          </p>
+
         </section>
-        <section class="exam-result" id="exam-result" hidden aria-labelledby="result-heading">
-          <div class="result-heading"><span class="section-kicker">HASIL LATIHAN</span><h2 id="result-heading">Sesi selesai.</h2><p id="result-message">Berikut ringkasan hasil latihanmu.</p></div>
-          <div class="result-score"><strong id="result-percent">0%</strong><span>nilai akhir</span></div>
-          <div class="result-stats"><div><span>Total soal</span><strong id="result-total">0</strong></div><div><span>Benar</span><strong id="result-correct">0</strong></div><div><span>Salah</span><strong id="result-wrong">0</strong></div></div>
-          <div class="review-heading"><h3>Tinjau jawaban</h3><span id="review-count">0 soal</span></div>
+
+
+
+        <!-- HASIL UJIAN -->
+        <section
+          class="exam-result"
+          id="exam-result"
+          hidden
+          aria-labelledby="result-heading"
+        >
+
+          <div class="result-heading">
+            <span class="section-kicker">HASIL LATIHAN</span>
+
+            <h2 id="result-heading">Ujiannya selesai!</h2>
+
+            <p id="result-message">
+              Berikut hasil yang kamu dapatkan. Yuk, lihat bagian mana
+              yang sudah dikuasai dan mana yang masih perlu dipelajari.
+            </p>
+          </div>
+
+
+          <div class="result-score">
+            <strong id="result-percent">0%</strong>
+            <span>nilai akhir</span>
+          </div>
+
+
+          <div class="result-stats">
+
+            <div>
+              <span>Total soal</span>
+              <strong id="result-total">0</strong>
+            </div>
+
+            <div>
+              <span>Jawaban benar</span>
+              <strong id="result-correct">0</strong>
+            </div>
+
+            <div>
+              <span>Jawaban salah</span>
+              <strong id="result-wrong">0</strong>
+            </div>
+
+          </div>
+
+
+          <div class="review-heading">
+            <h3>Yuk, cek jawabanmu</h3>
+            <span id="review-count">0 soal</span>
+          </div>
+
+
           <div class="review-list" id="review-list"></div>
-          <div class="result-actions"><button type="button" class="button button-primary" id="back-to-exam-lobby">Kembali ke ujian</button><button type="button" class="button button-outline" id="retake-exam">Ulangi ujian</button></div>
+
+
+          <div class="result-actions">
+
+            <button
+              type="button"
+              class="button button-primary"
+              id="back-to-exam-lobby"
+            >
+              Kembali ke halaman ujian
+            </button>
+
+            <button
+              type="button"
+              class="button button-outline"
+              id="retake-exam"
+            >
+              Coba lagi
+            </button>
+
+          </div>
+
         </section>
+
       </section>
+
     </main>
 
-    <footer class="site-footer"><span>ことばノート</span><span>学ぶ · 覚える · 試す</span><span>JLPT N1 / DAY 1</span></footer>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <span>ことばノート</span>
+      <span>学ぶ · 覚える · 試す</span>
+      <span>JLPT N1 / DAY 1</span>
+    </footer>
+
   </div>
 
+
+
+  <!-- MODAL DETAIL KOSAKATA -->
   <div class="modal-backdrop" id="detail-modal" hidden>
-    <section class="modal-sheet detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detail-word" tabindex="-1">
-      <button class="modal-close" type="button" data-close-modal aria-label="Tutup detail">×</button>
-      <div class="detail-head"><span class="detail-kicker" id="detail-day-label">DAY 1 VOCABULARY</span><span class="detail-id" id="detail-index">01 / 91</span></div>
-      <h2 id="detail-word">侮る</h2><p class="detail-reading" id="detail-reading">あなどる</p><p class="detail-meaning" id="detail-meaning">meremehkan</p>
-      <div class="detail-status-row"><span class="detail-status-label">Status hafalan</span><div class="status-control" id="detail-status-control"></div></div>
-      <div class="detail-section"><h3>Penjelasan</h3><p id="detail-explanation"></p></div>
-      <div class="detail-section"><h3>Nuansa penggunaan</h3><p id="detail-nuance"></p></div>
-      <div class="detail-section"><h3>Contoh kalimat</h3><div class="example-list" id="detail-examples"></div></div>
-      <div class="detail-section"><h3>Konteks</h3><div class="context-tags" id="detail-contexts"></div></div>
-      <div class="detail-footer"><button class="button button-outline" type="button" id="detail-previous">← Kata sebelumnya</button><button class="button button-primary" type="button" id="detail-next">Kata berikutnya →</button></div>
+
+    <section
+      class="modal-sheet detail-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detail-word"
+      tabindex="-1"
+    >
+
+      <button
+        class="modal-close"
+        type="button"
+        data-close-modal
+        aria-label="Tutup detail"
+      >
+        ×
+      </button>
+
+
+      <div class="detail-head">
+        <span class="detail-kicker" id="detail-day-label">
+          KOSAKATA HARI 1
+        </span>
+
+        <span class="detail-id" id="detail-index">01 / 91</span>
+      </div>
+
+
+      <h2 id="detail-word">侮る</h2>
+
+      <p class="detail-reading" id="detail-reading">あなどる</p>
+
+      <p class="detail-meaning" id="detail-meaning">meremehkan</p>
+
+
+      <div class="detail-status-row">
+        <span class="detail-status-label">Seberapa hafal kamu?</span>
+        <div class="status-control" id="detail-status-control"></div>
+      </div>
+
+
+      <div class="detail-section">
+        <h3>Penjelasan</h3>
+        <p id="detail-explanation"></p>
+      </div>
+
+
+      <div class="detail-section">
+        <h3>Nuansa penggunaan</h3>
+        <p id="detail-nuance"></p>
+      </div>
+
+
+      <div class="detail-section">
+        <h3>Contoh kalimat</h3>
+        <div class="example-list" id="detail-examples"></div>
+      </div>
+
+
+      <div class="detail-section">
+        <h3>Biasanya digunakan dalam</h3>
+        <div class="context-tags" id="detail-contexts"></div>
+      </div>
+
+
+      <div class="detail-footer">
+
+        <button
+          class="button button-outline"
+          type="button"
+          id="detail-previous"
+        >
+          ← Kata sebelumnya
+        </button>
+
+        <button
+          class="button button-primary"
+          type="button"
+          id="detail-next"
+        >
+          Kata berikutnya →
+        </button>
+
+      </div>
+
     </section>
+
   </div>
 
+
+
+  <!-- MODAL ISTIRAHAT -->
   <div class="modal-backdrop" id="rest-modal" hidden>
-    <section class="modal-sheet rest-sheet" role="dialog" aria-modal="true" aria-labelledby="rest-heading" tabindex="-1">
-      <div class="rest-mark" aria-hidden="true">休</div><p class="section-kicker">JEDA SEJENAK</p><h2 id="rest-heading">Sempatkan beristirahat.</h2><p>Sudah cukup belajar hari ini? Jangan lupa beristirahat agar tetap fokus besok.</p><button class="button button-primary" type="button" id="dismiss-rest">Mengerti</button>
+
+    <section
+      class="modal-sheet rest-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="rest-heading"
+      tabindex="-1"
+    >
+
+      <div class="rest-mark" aria-hidden="true">休</div>
+
+      <p class="section-kicker">ISTIRAHAT SEBENTAR</p>
+
+      <h2 id="rest-heading">Jangan lupa ambil jeda, ya.</h2>
+
+      <p>
+        Belajar memang penting, tapi istirahat juga bagian dari prosesnya.
+        Beri diri sendiri waktu untuk rehat sebelum lanjut lagi.
+      </p>
+
+      <button
+        class="button button-primary"
+        type="button"
+        id="dismiss-rest"
+      >
+        Oke, mengerti
+      </button>
+
     </section>
+
   </div>
 
+
+
+  <!-- MODAL KONFIRMASI SELESAI UJIAN -->
   <div class="modal-backdrop" id="confirm-modal" hidden>
-    <section class="modal-sheet confirm-sheet" role="dialog" aria-modal="true" aria-labelledby="confirm-heading" tabindex="-1">
-      <button class="modal-close" type="button" data-close-modal aria-label="Tutup konfirmasi">×</button>
-      <p class="section-kicker">KONFIRMASI</p><h2 id="confirm-heading">Akhiri ujian sekarang?</h2><p id="confirm-description">Pastikan semua soal sudah dijawab. Jawaban akan dinilai setelah ujian berakhir.</p>
-      <div class="confirm-actions"><button class="button button-outline" type="button" id="cancel-finish">Lanjut mengerjakan</button><button class="button button-primary" type="button" id="confirm-finish">Akhiri ujian</button></div>
+
+    <section
+      class="modal-sheet confirm-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirm-heading"
+      tabindex="-1"
+    >
+
+      <button
+        class="modal-close"
+        type="button"
+        data-close-modal
+        aria-label="Tutup konfirmasi"
+      >
+        ×
+      </button>
+
+
+      <p class="section-kicker">KONFIRMASI</p>
+
+      <h2 id="confirm-heading">Yakin mau mengakhiri ujian?</h2>
+
+      <p id="confirm-description">
+        Pastikan jawabanmu sudah lengkap. Setelah ujian diakhiri,
+        hasil dan pembahasan setiap soal akan ditampilkan.
+      </p>
+
+
+      <div class="confirm-actions">
+
+        <button
+          class="button button-outline"
+          type="button"
+          id="cancel-finish"
+        >
+          Kembali mengerjakan
+        </button>
+
+        <button
+          class="button button-primary"
+          type="button"
+          id="confirm-finish"
+        >
+          Ya, akhiri ujian
+        </button>
+
+      </div>
+
     </section>
+
   </div>
 
+
+
+  <!-- NOTIFIKASI -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 </body>
 </html>
