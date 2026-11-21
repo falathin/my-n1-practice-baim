@@ -1,14 +1,20 @@
+
 import { day1Vocabulary } from './day1.js';
+import { day2Vocabulary } from './day2.js';
 
 // Hanya data hari yang benar-benar tersedia dan didaftarkan yang akan muncul.
-// Saat Day 2 tersedia, import day2Vocabulary dari './day2.js' lalu tambahkan
-// satu objek registrasi baru dengan pola yang sama.
 export const availableDays = [
   {
     id: 'day1',
     label: 'Day 1',
     title: 'Kosakata Hari 1',
     vocabulary: day1Vocabulary
+  },
+  {
+    id: 'day2',
+    label: 'Day 2',
+    title: 'Kosakata Hari 2',
+    vocabulary: day2Vocabulary
   }
 ];
 
