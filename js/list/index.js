@@ -1,6 +1,7 @@
 
 import { day1Vocabulary } from './day1.js';
 import { day2Vocabulary } from './day2.js';
+import { day3Vocabulary } from './day3.js';
 
 // Hanya data hari yang benar-benar tersedia dan didaftarkan yang akan muncul.
 export const availableDays = [
@@ -15,6 +16,12 @@ export const availableDays = [
     label: 'Day 2',
     title: 'Kosakata Hari 2',
     vocabulary: day2Vocabulary
+  },
+  {
+    id: 'day3',
+    label: 'Day 3',
+    title: 'Kosakata Hari 3',
+    vocabulary: day3Vocabulary
   }
 ];
 
